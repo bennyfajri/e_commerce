@@ -1,29 +1,21 @@
-import 'package:e_commerce/firebase_options.dart';
-import 'package:firebase_core/firebase_core.dart';
+import 'package:e_commerce/utils/theme/theme.dart';
 import 'package:flutter/material.dart';
 
-Future<void> main() async {
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform
-  );
-
-  runApp(const MyApp());
+void main()  {
+  runApp(const App());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class App extends StatelessWidget {
+  const App({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
+      themeMode: ThemeMode.system,
+      theme: AppTheme.lightTheme,
+      darkTheme: AppTheme.darkTheme,
 
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const SizedBox(),
     );
   }
 }
+
