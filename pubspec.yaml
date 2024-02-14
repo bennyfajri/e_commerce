@@ -1,0 +1,80 @@
+name: e_commerce
+description: "A new Flutter project."
+
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.2.6 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # utility packages
+
+  # icons
+  cupertino_icons: ^1.0.2
+  iconsax: ^0.0.8
+
+  # state management
+  get: ^4.6.6
+  get_storage: ^2.1.1
+
+  firebase_core: ^2.25.4
+  readmore: ^2.2.0
+  carousel_slider: ^4.2.1
+  flutter_rating_bar: ^4.0.1
+
+  # product specific
+
+  
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/logos/
+    - assets/icons/
+    - assets/images/
+
+  fonts:
+    - family: Poppins
+      fonts:
+        - asset: assets/fonts/Poppins-Light.ttf
+          weight: 300
+        - asset: assets/fonts/Poppins-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Poppins-Italic.ttf
+          style: italic
+        - asset: assets/fonts/Poppins-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Poppins-MediumItalic.ttf
+          weight: 500
+          style: italic
+        - asset: assets/fonts/Poppins-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Poppins-SemiBoldItalic.ttf
+          weight: 600
+          style: italic
+        - asset: assets/fonts/Poppins-Bold.ttf
+          weight: 800
+        - asset: assets/fonts/Poppins-BoldItalic.ttf
+          weight: 800
+          style: italic
+
+    - family: Coolvetica
+      fonts:
+        - asset: assets/fonts/coolvetica_regular.ttf
+          weight: 400
+        - asset: assets/fonts/coolvetica_regular_italic.ttf
+          weight: 400
+          style: italic
+
+
