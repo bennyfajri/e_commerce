@@ -1,4 +1,4 @@
-class DImages {
+class Images {
 
   // App Logos
   static const String darkAppLogo = "assets/logos/online-shopping-dark.png";

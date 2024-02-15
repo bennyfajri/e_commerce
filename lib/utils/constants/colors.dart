@@ -2,24 +2,13 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
-class DColors {
-  DColors._();
+class MyColors {
+  MyColors._();
 
   // App Basic Colors
   static const Color primary = Color(0xFF4B68FF);
   static const Color secondary = Color(0xFFFFE248);
   static const Color accent = Color(0xFFB0C7FF);
-
-  // Gradient Colors
-  static const Gradient linearGradient = LinearGradient(
-    begin: Alignment(0.0, 0.0),
-    end: Alignment(0.707, -0.707),
-    colors: [
-      Color(0xFFFF9A9E),
-      Color(0xFFFAD0C4),
-      Color(0xFFFAD0C4),
-    ],
-  );
 
   // Text Colors
   static const Color textPrimary = Color(0xFF333333);
@@ -33,7 +22,7 @@ class DColors {
 
   // Background Container Colors
   static const Color lightContainer = Color(0xFFF6F6F6);
-  static Color darkContainer = DColors.white.withOpacity(0.1);
+  static Color darkContainer = MyColors.white.withOpacity(0.1);
 
   // Button Colors
   static const Color buttonPrimary = Color(0xFF4B68FF);

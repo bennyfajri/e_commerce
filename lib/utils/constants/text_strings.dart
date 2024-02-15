@@ -1,4 +1,4 @@
-class DTexts {
+class Texts {
   // Global Texts
 
   // OnBoarding Texts
