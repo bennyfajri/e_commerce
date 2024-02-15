@@ -1,4 +1,6 @@
+import 'package:e_commerce/features/authentication/screens/register/register.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 import '../../../../../utils/constants/sizes.dart';
@@ -59,7 +61,7 @@ class LoginForm extends StatelessWidget {
               child: ElevatedButton(
                 child: const Text(Texts.signIn),
                 onPressed: () {
-                  //button pressed
+
                 },
               ),
             ),
@@ -71,7 +73,9 @@ class LoginForm extends StatelessWidget {
               child: OutlinedButton(
                 child: const Text(Texts.createAccount),
                 onPressed: () {
-                  //button pressed
+                  Get.to(() {
+                    return const RegisterScreen();
+                  });
                 },
               ),
             ),
