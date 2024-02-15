@@ -1,5 +1,7 @@
+import 'package:e_commerce/features/authentication/screens/register/verify_email.dart';
 import 'package:e_commerce/features/authentication/screens/register/widgets/terms_and_condition_checkbox.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 import '../../../../../utils/constants/sizes.dart';
@@ -87,7 +89,7 @@ class RegisterForm extends StatelessWidget {
           SizedBox(
             width: double.infinity,
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () => Get.to(() => const VerifyEmailScreen()),
               child: const Text(Texts.createAccount),
             ),
           )
