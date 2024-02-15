@@ -12,6 +12,10 @@ dependencies:
     sdk: flutter
 
   # utility packages
+  http: ^1.2.0
+  intl: ^0.19.0
+  logger: ^2.0.2+1
+  url_launcher: ^6.2.4
 
   # icons
   cupertino_icons: ^1.0.2
@@ -24,7 +28,11 @@ dependencies:
   firebase_core: ^2.25.4
   readmore: ^2.2.0
   carousel_slider: ^4.2.1
+
+  # firebase
+
   flutter_rating_bar: ^4.0.1
+  firebase_storage: ^11.6.5
 
   # product specific
 
