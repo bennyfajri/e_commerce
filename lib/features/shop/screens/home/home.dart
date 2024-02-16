@@ -1,6 +1,8 @@
 import 'package:e_commerce/features/shop/screens/home/widgets/home_appbar.dart';
 import 'package:e_commerce/features/shop/screens/home/widgets/home_categories.dart';
+import 'package:e_commerce/features/shop/screens/home/widgets/promo_slider.dart';
 import 'package:e_commerce/utils/constants/colors.dart';
+import 'package:e_commerce/utils/constants/image_strings.dart';
 import 'package:e_commerce/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 
@@ -13,7 +15,7 @@ class HomeSceen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -22,27 +24,27 @@ class HomeSceen extends StatelessWidget {
               child: Column(
                 children: [
                   /// Appbar
-                  const HomeAppBar(),
-                  const SizedBox(height: Sizes.spaceBetweenSections),
+                  HomeAppBar(),
+                  SizedBox(height: Sizes.spaceBetweenSections),
 
                   /// Searchbar
-                  const SearchContainer(
+                  SearchContainer(
                     text: "Search in Store",
                   ),
-                  const SizedBox(height: Sizes.spaceBetweenSections),
+                  SizedBox(height: Sizes.spaceBetweenSections),
 
                   /// Categories
                   Padding(
-                    padding: const EdgeInsets.only(left: Sizes.defaultSpace),
+                    padding: EdgeInsets.only(left: Sizes.defaultSpace),
                     child: Column(
                       children: [
                         /// Heading
-                        const SectionHeading(
+                        SectionHeading(
                           title: "Popular Categories",
                           showActionButton: false,
                           textColor: MyColors.white,
                         ),
-                        const SizedBox(height: Sizes.spaceBetweenItems),
+                        SizedBox(height: Sizes.spaceBetweenItems),
 
                         /// Categories
                         HomeCategories()
@@ -51,7 +53,17 @@ class HomeSceen extends StatelessWidget {
                   )
                 ],
               ),
-            )
+            ),
+
+            Padding(
+                padding: EdgeInsets.all(Sizes.defaultSpace),
+                child: PromoSlider(
+                  banners: [
+                    Images.promoBanner1,
+                    Images.promoBanner2,
+                    Images.promoBanner3,
+                  ],
+                ))
           ],
         ),
       ),
