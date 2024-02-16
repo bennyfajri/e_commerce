@@ -1,3 +1,4 @@
+import 'package:e_commerce/common/widgets/products/product_card_vertical.dart';
 import 'package:e_commerce/features/shop/screens/home/widgets/home_appbar.dart';
 import 'package:e_commerce/features/shop/screens/home/widgets/home_categories.dart';
 import 'package:e_commerce/features/shop/screens/home/widgets/promo_slider.dart';
@@ -8,6 +9,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../common/widgets/custom_shapes/containers/primary_header_container.dart';
 import '../../../../common/widgets/custom_shapes/containers/search_container.dart';
+import '../../../../common/widgets/layout/grid_product_layout.dart';
 import '../../../../common/widgets/texts/section_heading.dart';
 
 class HomeSceen extends StatelessWidget {
@@ -15,7 +17,7 @@ class HomeSceen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -57,11 +59,23 @@ class HomeSceen extends StatelessWidget {
 
             Padding(
                 padding: EdgeInsets.all(Sizes.defaultSpace),
-                child: PromoSlider(
-                  banners: [
-                    Images.promoBanner1,
-                    Images.promoBanner2,
-                    Images.promoBanner3,
+                child: Column(
+                  children: [
+                    /// Promo Slider
+                    const PromoSlider(
+                      banners: [
+                        Images.promoBanner1,
+                        Images.promoBanner2,
+                        Images.promoBanner3,
+                      ],
+                    ),
+                    const SizedBox(height: Sizes.spaceBetweenSections),
+
+                    /// Popular Products
+                    GridProductLayout(
+                      itemCount: 4,
+                      itemBuilder: (_, index) => const ProductCardVertical(),
+                    ),
                   ],
                 ))
           ],
