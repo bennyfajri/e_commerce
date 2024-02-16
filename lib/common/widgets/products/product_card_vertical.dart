@@ -10,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
 import '../icon/circular_icon.dart';
+import '../texts/brand_title_text_with_verified_icon.dart';
 import '../texts/product_price_text.dart';
 
 class ProductCardVertical extends StatelessWidget {
@@ -27,7 +28,7 @@ class ProductCardVertical extends StatelessWidget {
         decoration: BoxDecoration(
             boxShadow: [ShadowStyle.verticalProductShadow],
             borderRadius: BorderRadius.circular(Sizes.productImageRadius),
-            color: isDarkMode ? MyColors.darkGrey : MyColors.white),
+            color: isDarkMode ? MyColors.darkerGrey : MyColors.white),
         child: Column(
           children: [
             /// Thumbnail, Wishlist Button, Discount Tag,
@@ -84,51 +85,46 @@ class ProductCardVertical extends StatelessWidget {
                     smallSize: true,
                   ),
                   const SizedBox(height: Sizes.spaceBetweenItems / 2),
-                  Row(
-                    children: [
-                      Text("Nike",
-                          overflow: TextOverflow.ellipsis,
-                          maxLines: 1,
-                          style: Theme.of(context).textTheme.labelMedium),
-                      const SizedBox(width: Sizes.xs),
-                      const Icon(
-                        Iconsax.verify5,
-                        color: MyColors.primary,
-                        size: Sizes.iconXs,
-                      )
-                    ],
+                  BrandTitleTextWithVerifiedIcon(
+                    title: "Nike",
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      /// Price
-                      const ProductPriceText(price: "35"),
-                      Container(
-                        decoration: const BoxDecoration(
-                          color: MyColors.dark,
-                          borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(Sizes.cardRadiusMd),
-                              bottomRight:
-                                  Radius.circular(Sizes.productImageRadius)),
-                        ),
-                        child: const SizedBox(
-                          width: Sizes.iconLg * 1.2,
-                          height: Sizes.iconLg * 1.2,
-                          child: Center(
-                            child: Icon(
-                              Iconsax.add,
-                              color: MyColors.white,
-                            ),
-                          ),
-                        ),
-                      )
-
-                      ///
-                    ],
-                  )
                 ],
               ),
             ),
+            const Spacer(),
+
+            /// Price Row
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                /// Price
+                const Padding(
+                  padding: EdgeInsets.only(left: Sizes.sm),
+                  child: ProductPriceText(price: "35"),
+                ),
+                Container(
+                  decoration: const BoxDecoration(
+                    color: MyColors.dark,
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(Sizes.cardRadiusMd),
+                        bottomRight:
+                        Radius.circular(Sizes.productImageRadius)),
+                  ),
+                  child: const SizedBox(
+                    width: Sizes.iconLg * 1.2,
+                    height: Sizes.iconLg * 1.2,
+                    child: Center(
+                      child: Icon(
+                        Iconsax.add,
+                        color: MyColors.white,
+                      ),
+                    ),
+                  ),
+                )
+
+                ///
+              ],
+            )
           ],
         ),
       ),
