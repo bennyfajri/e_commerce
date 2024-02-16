@@ -22,7 +22,7 @@ class HomeSceen extends StatelessWidget {
         child: Column(
           children: [
             /// Header
-            PrimaryHeaderContainer(
+            const PrimaryHeaderContainer(
               child: Column(
                 children: [
                   /// Appbar
@@ -52,13 +52,14 @@ class HomeSceen extends StatelessWidget {
                         HomeCategories()
                       ],
                     ),
-                  )
+                  ),
+                  SizedBox(height: Sizes.spaceBetweenSections)
                 ],
               ),
             ),
 
             Padding(
-                padding: EdgeInsets.all(Sizes.defaultSpace),
+                padding: const EdgeInsets.all(Sizes.defaultSpace),
                 child: Column(
                   children: [
                     /// Promo Slider
