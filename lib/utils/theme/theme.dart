@@ -1,3 +1,4 @@
+import 'package:e_commerce/utils/constants/colors.dart';
 import 'package:e_commerce/utils/theme/custom_theme/app_bar_theme.dart';
 import 'package:e_commerce/utils/theme/custom_theme/bottom_sheet_theme.dart';
 import 'package:e_commerce/utils/theme/custom_theme/checkbox_theme.dart';
@@ -31,8 +32,8 @@ class AppTheme {
     useMaterial3: true,
     fontFamily: "Poppins",
     brightness: Brightness.dark,
-    primaryColor: Colors.blue,
-    scaffoldBackgroundColor: Colors.black,
+    primaryColor: MyColors.primary,
+    scaffoldBackgroundColor: MyColors.black,
     textTheme: DTextTheme.darkTextTheme,
     chipTheme: DChipTheme.darkChipTheme,
     appBarTheme: DAppBarTheme.darkAppBarTheme,
