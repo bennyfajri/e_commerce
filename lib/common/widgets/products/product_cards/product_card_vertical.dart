@@ -11,9 +11,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
-import '../icon/circular_icon.dart';
-import '../texts/brand_title_text_with_verified_icon.dart';
-import '../texts/product_price_text.dart';
+import '../../icon/circular_icon.dart';
+import '../../texts/brand_title_text_with_verified_icon.dart';
+import '../../texts/product_price_text.dart';
 
 class ProductCardVertical extends StatelessWidget {
   const ProductCardVertical({super.key});
