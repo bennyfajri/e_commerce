@@ -1,4 +1,4 @@
-import 'package:e_commerce/common/products_cart/cart_menu_icon.dart';
+import 'package:e_commerce/common/widgets/products/cart/cart_menu_icon.dart';
 import 'package:e_commerce/common/widgets/appbar/appbar.dart';
 import 'package:e_commerce/common/widgets/custom_shapes/containers/search_container.dart';
 import 'package:e_commerce/common/widgets/layout/grid_product_layout.dart';
