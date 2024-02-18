@@ -45,6 +45,7 @@ class BrandsCard extends StatelessWidget {
             /// Text
             Expanded(
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   const BrandTitleTextWithVerifiedIcon(
