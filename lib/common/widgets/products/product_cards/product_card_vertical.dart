@@ -23,14 +23,15 @@ class ProductCardVertical extends StatelessWidget {
     final isDarkMode = HelperFunctions.isDarkMode(context);
 
     return GestureDetector(
-      onTap: ()  => Get.to(() => const ProductDetailScreen()),
+      onTap: () => Get.to(() => const ProductDetailScreen()),
       child: Container(
         width: 180,
         padding: const EdgeInsets.all(1),
         decoration: BoxDecoration(
-            boxShadow: [ShadowStyle.verticalProductShadow],
-            borderRadius: BorderRadius.circular(Sizes.productImageRadius),
-            color: isDarkMode ? MyColors.darkerGrey : MyColors.white),
+          boxShadow: [ShadowStyle.verticalProductShadow],
+          borderRadius: BorderRadius.circular(Sizes.productImageRadius),
+          color: isDarkMode ? MyColors.darkerGrey : MyColors.white,
+        ),
         child: Column(
           children: [
             /// Thumbnail, Wishlist Button, Discount Tag,
@@ -111,8 +112,7 @@ class ProductCardVertical extends StatelessWidget {
                     color: MyColors.dark,
                     borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(Sizes.cardRadiusMd),
-                        bottomRight:
-                        Radius.circular(Sizes.productImageRadius)),
+                        bottomRight: Radius.circular(Sizes.productImageRadius)),
                   ),
                   child: const SizedBox(
                     width: Sizes.iconLg * 1.2,
