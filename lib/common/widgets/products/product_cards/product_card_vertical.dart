@@ -77,16 +77,16 @@ class ProductCardVertical extends StatelessWidget {
             const SizedBox(height: Sizes.spaceBetweenItems / 2),
 
             ///  Details
-            Padding(
-              padding: const EdgeInsets.only(left: Sizes.sm),
+            const Padding(
+              padding: EdgeInsets.only(left: Sizes.sm),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const ProductTitleText(
+                  ProductTitleText(
                     title: "Green Nike Air Shoes",
                     smallSize: true,
                   ),
-                  const SizedBox(height: Sizes.spaceBetweenItems / 2),
+                  SizedBox(height: Sizes.spaceBetweenItems / 2),
                   BrandTitleTextWithVerifiedIcon(
                     title: "Nike",
                   ),
@@ -104,6 +104,8 @@ class ProductCardVertical extends StatelessWidget {
                   padding: EdgeInsets.only(left: Sizes.sm),
                   child: ProductPriceText(price: "35"),
                 ),
+
+                /// Add to Cart Button
                 Container(
                   decoration: const BoxDecoration(
                     color: MyColors.dark,
@@ -123,8 +125,6 @@ class ProductCardVertical extends StatelessWidget {
                     ),
                   ),
                 )
-
-                ///
               ],
             )
           ],
