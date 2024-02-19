@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "817692559998",
-    "project_id": "ecommerce-37f21",
-    "storage_bucket": "ecommerce-37f21.appspot.com"
+    "project_number": "492482418597",
+    "project_id": "ecommerce-ac56c",
+    "storage_bucket": "ecommerce-ac56c.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:817692559998:android:e6baa8e526171922ed662f",
+        "mobilesdk_app_id": "1:492482418597:android:5b598ab3a3a67de8943a4c",
         "android_client_info": {
           "package_name": "com.drsync.e_commerce"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyANmZpYgnUuQwbnqJX58e_OgfH34LIb3LQ"
+          "current_key": "AIzaSyDRMbfDExFqtZgAf27mkfEGA3NQuWlepPY"
         }
       ],
       "services": {
