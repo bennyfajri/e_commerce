@@ -44,37 +44,41 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyC5NgaKHkTZaKLdWM_O-ycRAtEwaq7K7G0',
-    appId: '1:492482418597:web:96956a45765b8d57943a4c',
-    messagingSenderId: '492482418597',
-    projectId: 'ecommerce-ac56c',
-    authDomain: 'ecommerce-ac56c.firebaseapp.com',
-    storageBucket: 'ecommerce-ac56c.appspot.com',
+    apiKey: 'AIzaSyCN_r2HZ9AXfzbNRlqJNrJFRVHlzeEL198',
+    appId: '1:817692559998:web:32a4af867b010bc0ed662f',
+    messagingSenderId: '817692559998',
+    projectId: 'ecommerce-37f21',
+    authDomain: 'ecommerce-37f21.firebaseapp.com',
+    storageBucket: 'ecommerce-37f21.appspot.com',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyDRMbfDExFqtZgAf27mkfEGA3NQuWlepPY',
-    appId: '1:492482418597:android:5b598ab3a3a67de8943a4c',
-    messagingSenderId: '492482418597',
-    projectId: 'ecommerce-ac56c',
-    storageBucket: 'ecommerce-ac56c.appspot.com',
+    apiKey: 'AIzaSyANmZpYgnUuQwbnqJX58e_OgfH34LIb3LQ',
+    appId: '1:817692559998:android:e6baa8e526171922ed662f',
+    messagingSenderId: '817692559998',
+    projectId: 'ecommerce-37f21',
+    storageBucket: 'ecommerce-37f21.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCuegv_0ml-4En72ypydlwNmg9l3SkkzAo',
-    appId: '1:492482418597:ios:f3344c4adab411ca943a4c',
-    messagingSenderId: '492482418597',
-    projectId: 'ecommerce-ac56c',
-    storageBucket: 'ecommerce-ac56c.appspot.com',
+    apiKey: 'AIzaSyDVmF9wYu46VMDG9qPBGwpLVJwK2v1UeMU',
+    appId: '1:817692559998:ios:c374041d2cce58caed662f',
+    messagingSenderId: '817692559998',
+    projectId: 'ecommerce-37f21',
+    storageBucket: 'ecommerce-37f21.appspot.com',
+    androidClientId: '817692559998-pu3rl09fncmkirvbveeaghu1c5u1vplp.apps.googleusercontent.com',
+    iosClientId: '817692559998-3kkqcdrut7u2ebn02abhpmks4cgpa3u6.apps.googleusercontent.com',
     iosBundleId: 'com.drsync.eCommerce',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyCuegv_0ml-4En72ypydlwNmg9l3SkkzAo',
-    appId: '1:492482418597:ios:1cd25d6d0c23bb96943a4c',
-    messagingSenderId: '492482418597',
-    projectId: 'ecommerce-ac56c',
-    storageBucket: 'ecommerce-ac56c.appspot.com',
+    apiKey: 'AIzaSyDVmF9wYu46VMDG9qPBGwpLVJwK2v1UeMU',
+    appId: '1:817692559998:ios:a7187e6b7939ac69ed662f',
+    messagingSenderId: '817692559998',
+    projectId: 'ecommerce-37f21',
+    storageBucket: 'ecommerce-37f21.appspot.com',
+    androidClientId: '817692559998-pu3rl09fncmkirvbveeaghu1c5u1vplp.apps.googleusercontent.com',
+    iosClientId: '817692559998-ejt4f02f7ftnd3regld0919v2rl48v8v.apps.googleusercontent.com',
     iosBundleId: 'com.drsync.eCommerce.RunnerTests',
   );
 }

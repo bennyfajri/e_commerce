@@ -1,4 +1,4 @@
-import 'package:e_commerce/features/authentication/controller/onboarding_controller.dart';
+import 'package:e_commerce/features/authentication/controller/onboarding/onboarding_controller.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
