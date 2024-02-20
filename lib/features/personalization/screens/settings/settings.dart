@@ -11,6 +11,7 @@ import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 import '../../../../common/widgets/list_tiles/user_profile_tile.dart';
+import '../../../../data/repositories/authentication/authentication_repository.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -135,6 +136,16 @@ class SettingsScreen extends StatelessWidget {
                     trailing: Switch(
                       value: false,
                       onChanged: (value) {},
+                    ),
+                  ),
+                  const SizedBox(height: Sizes.spaceBetweenSections),
+
+                  //outlined button logout
+                  SizedBox(
+                    width: double.infinity,
+                    child: OutlinedButton(
+                      onPressed: () async => await AuthenticationRepository.instance.logout(),
+                      child: const Text("Logout"),
                     ),
                   ),
                 ],
