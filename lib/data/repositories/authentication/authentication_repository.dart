@@ -30,11 +30,13 @@ class AuthenticationRepository extends GetxController {
   /// Function to show Relevant Screen
   screenRedirect() async {
     final user = _auth.currentUser;
-    if(user != null) {
-      if(user.emailVerified) {
+    if (user != null) {
+      if (user.emailVerified) {
         Get.offAll(() => const NavigationMenu());
       } else {
-        Get.offAll(() => VerifyEmailScreen(email: _auth.currentUser?.email,));
+        Get.offAll(() => VerifyEmailScreen(
+              email: _auth.currentUser?.email,
+            ));
       }
     } else {
       // Local Storage
@@ -42,6 +44,29 @@ class AuthenticationRepository extends GetxController {
       deviceStorage.read("isFirstTime") != true
           ? Get.offAll(() => const LoginScreen())
           : Get.offAll(const OnBoardingScreen());
+    }
+  }
+
+  /// Email Auth - Login
+  Future<UserCredential> loginWIthEmailAndPassword(
+    String email,
+    String password,
+  ) async {
+    try {
+      return await _auth.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+    } on FirebaseAuthException catch (e) {
+      throw MyFirebaseAuthException(e.code).message;
+    } on FirebaseException catch (e) {
+      throw MyFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw const MyFormatException();
+    } on PlatformException catch (e) {
+      throw MyPlatformException(e.code).message;
+    } catch (e) {
+      throw "Something went wrong, Please try again";
     }
   }
 

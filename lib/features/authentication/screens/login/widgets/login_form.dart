@@ -1,6 +1,7 @@
+import 'package:e_commerce/features/authentication/controller/login/login_controller.dart';
 import 'package:e_commerce/features/authentication/screens/password_configuration/forget_password.dart';
 import 'package:e_commerce/features/authentication/screens/register/register.dart';
-import 'package:e_commerce/navigation_menu.dart';
+import 'package:e_commerce/utils/validators/validation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
@@ -15,14 +16,20 @@ class LoginForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(LoginController());
+
     return Form(
+      key: controller.loginFormKey,
       child: Padding(
         padding:
-        const EdgeInsets.symmetric(vertical: Sizes.spaceBetweenSections),
+            const EdgeInsets.symmetric(vertical: Sizes.spaceBetweenSections),
         child: Column(
           children: [
             /// Email
             TextFormField(
+              controller: controller.email,
+              validator: (value) => Validator.validateEmail(value),
+              keyboardType: TextInputType.emailAddress,
               decoration: const InputDecoration(
                   prefixIcon: Icon(Iconsax.direct_right),
                   labelText: Texts.email),
@@ -30,11 +37,26 @@ class LoginForm extends StatelessWidget {
             const SizedBox(height: Sizes.spaceBetweenInputFields),
 
             /// Password
-            TextFormField(
-              decoration: const InputDecoration(
-                  prefixIcon: Icon(Iconsax.password_check),
+            Obx(
+              () => TextFormField(
+                controller: controller.password,
+                validator: (value) => Validator.validatePassword(value),
+                expands: false,
+                obscureText: controller.hidePassword.value,
+                decoration: InputDecoration(
                   labelText: Texts.password,
-                  suffixIcon: Icon(Iconsax.eye_slash)),
+                  prefixIcon: const Icon(Iconsax.password_check),
+                  suffixIcon: IconButton(
+                    onPressed: () => controller.hidePassword.value =
+                        !controller.hidePassword.value,
+                    icon: Icon(
+                      controller.hidePassword.value
+                          ? Iconsax.eye_slash
+                          : Iconsax.eye,
+                    ),
+                  ),
+                ),
+              ),
             ),
             const SizedBox(height: Sizes.spaceBetweenInputFields / 2),
 
@@ -45,14 +67,21 @@ class LoginForm extends StatelessWidget {
                 /// Remember Me
                 Row(
                   children: [
-                    Checkbox(value: true, onChanged: (value) {}),
+                    Obx(
+                      () => Checkbox(
+                        value: controller.rememberMe.value,
+                        onChanged: (value) =>
+                            controller.rememberMe.value = value!,
+                      ),
+                    ),
                     const Text(Texts.rememberMe)
                   ],
                 ),
 
                 /// Forget Password
                 TextButton(
-                    onPressed: () => Get.to(() => const ForgetPassword()), child: const Text(Texts.forgetPassword))
+                    onPressed: () => Get.to(() => const ForgetPassword()),
+                    child: const Text(Texts.forgetPassword))
               ],
             ),
             const SizedBox(height: Sizes.spaceBetweenSections),
@@ -62,9 +91,7 @@ class LoginForm extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                 child: const Text(Texts.signIn),
-                onPressed: () {
-                  Get.to(() => const NavigationMenu());
-                },
+                onPressed: ()  => controller.signInWithEmailAndPassword(),
               ),
             ),
             const SizedBox(height: Sizes.spaceBetweenItems),

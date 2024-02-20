@@ -87,8 +87,6 @@ class RegisterController extends GetxController {
     } catch (e) {
       // Remove Loader
       FullScreenLoader.stopLoading();
-      log("error catch");
-
       // Show some Generic Error to the user
       Loaders.errorSnackBar(title: "Oh Snap", message: e.toString());
     }
