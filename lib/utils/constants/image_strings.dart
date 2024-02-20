@@ -39,6 +39,16 @@ class Images {
   static const String deliveredEmailIllustration = "assets/images/animations/sammy-line-man-receives-a-mail.png";
   static const String verifyIllustration = "assets/images/animations/sammy-line-travel-backpack-with-passport-and-air-ticket.gif";
   static const String docerAnimation = "assets/images/animations/141594-animation-of-docer.json";
+  static const String searchAnimation = "assets/images/animations/72785-searching.json";
+  static const String emptyAnimation = "assets/images/animations/53207-empty-file.json";
+  static const String securityAnimation = "assets/images/animations/67263-security-icon-transparent.json";
+  static const String successfullyRegisterAnimation = "assets/images/animations/72462-check-register.json";
+  static const String thankYouAnimation = "assets/images/animations/104368-thank-you.json";
+  static const String paymentSuccessfulAnimation = "assets/images/animations/120978-payment-successful.json";
+  static const String loadingJuggleAnimation = "assets/images/animations/141397-loading-juggle.json";
+  static const String cloudUploadingAnimation = "assets/images/animations/cloud-uploading-animation.json";
+  static const String loaderAnimation = "assets/images/animations/loader-animation.json";
+  static const String packagingAnimation = "assets/images/animations/98783-packaging-in-progress.json";
 
   // -- OnBoarding Texts
   static const String onBoardingImage1 = "assets/images/on_boarding_images/sammy-line-searching.gif";
