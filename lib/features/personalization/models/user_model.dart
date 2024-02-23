@@ -59,15 +59,20 @@ class UserModel {
   factory UserModel.fromSnapshot(
     DocumentSnapshot<Map<String, dynamic>> documentSnapshot,
   ) {
-    final data = documentSnapshot.data()!;
-    return UserModel(
-      id: documentSnapshot.id,
-      firstName: data['FirstName'],
-      lastName: data["LastName"],
-      username: data["Username"],
-      email: data["Email"],
-      phoneNumber: data["phoneNumber"],
-      profilePicture: data["ProfilePicture"],
-    );
+    if(documentSnapshot.data() != null) {
+      final data = documentSnapshot.data()!;
+      return UserModel(
+        id: documentSnapshot.id,
+        firstName: data['FirstName'],
+        lastName: data["LastName"],
+        username: data["Username"],
+        email: data["Email"],
+        phoneNumber: data["phoneNumber"],
+        profilePicture: data["ProfilePicture"],
+      );
+    } else {
+      return UserModel.empty();
+    }
+
   }
 }

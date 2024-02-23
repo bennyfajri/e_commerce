@@ -7,11 +7,14 @@ import 'package:e_commerce/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
+import '../../controllers/user_controller.dart';
+
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final controller = UserController.instance;
     return Scaffold(
       appBar: const MyAppBar(
         showBackArrow: true,
@@ -54,10 +57,10 @@ class ProfileScreen extends StatelessWidget {
 
               ProfileMenuItem(
                   title: "Name",
-                  value: "Muhammad Beni Fajri",
+                  value: controller.user.value.fullName,
                   onPressed: () {}),
               ProfileMenuItem(
-                  title: "username", value: "bennyfajri", onPressed: () {}),
+                  title: "username", value: controller.user.value.username, onPressed: () {}),
 
               const SizedBox(height: Sizes.spaceBetweenItems / 2),
               const Divider(),
@@ -70,17 +73,17 @@ class ProfileScreen extends StatelessWidget {
 
               ProfileMenuItem(
                 title: "User ID",
-                value: "45678",
+                value: controller.user.value.id,
                 icon: Iconsax.copy,
                 onPressed: () {},
               ),
               ProfileMenuItem(
                   title: "E-mail",
-                  value: "m.b.fajri06@gmail.com",
+                  value: controller.user.value.email,
                   onPressed: () {}),
               ProfileMenuItem(
                   title: "Phone Number",
-                  value: "+62823-3595-2153",
+                  value: controller.user.value.phoneNumber,
                   onPressed: () {}),
               ProfileMenuItem(title: "Gender", value: "Male", onPressed: () {}),
               ProfileMenuItem(
