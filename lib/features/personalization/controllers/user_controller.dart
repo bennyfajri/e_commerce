@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:e_commerce/data/repositories/user/user_repository.dart';
 import 'package:e_commerce/features/personalization/models/user_model.dart';
 import 'package:e_commerce/utils/popups/loaders.dart';
@@ -22,8 +24,11 @@ class UserController extends GetxController {
       profileLoading.value = true;
       final user = await userRepository.fetchUserDetails();
       this.user(user);
+
+      log(user.toString());
       profileLoading.value = false;
     } catch (e) {
+      log("Error during get the data");
       user(UserModel.empty());
     } finally {
       profileLoading.value = false;
