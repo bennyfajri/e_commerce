@@ -1,10 +1,12 @@
 import 'package:e_commerce/common/widgets/appbar/appbar.dart';
 import 'package:e_commerce/common/widgets/images/circular_images.dart';
 import 'package:e_commerce/common/widgets/texts/section_heading.dart';
+import 'package:e_commerce/features/personalization/screens/profile/widgets/change_name.dart';
 import 'package:e_commerce/features/personalization/screens/profile/widgets/profile_menu_item.dart';
 import 'package:e_commerce/utils/constants/image_strings.dart';
 import 'package:e_commerce/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 import '../../controllers/user_controller.dart';
@@ -58,7 +60,7 @@ class ProfileScreen extends StatelessWidget {
               ProfileMenuItem(
                   title: "Name",
                   value: controller.user.value.fullName,
-                  onPressed: () {}),
+                  onPressed: () => Get.to(() => const ChangeName())),
               ProfileMenuItem(
                   title: "username", value: controller.user.value.username, onPressed: () {}),
 
@@ -97,7 +99,7 @@ class ProfileScreen extends StatelessWidget {
                     "Close Account",
                     style: TextStyle(color: Colors.red),
                   ),
-                  onPressed: () {},
+                  onPressed: () => controller.deleteAccountWarningPopup(),
                 ),
               )
             ],
