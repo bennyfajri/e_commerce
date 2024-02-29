@@ -1,5 +1,6 @@
 import 'package:e_commerce/common/widgets/appbar/appbar.dart';
 import 'package:e_commerce/common/widgets/images/circular_images.dart';
+import 'package:e_commerce/common/widgets/loader/shimmer.dart';
 import 'package:e_commerce/common/widgets/texts/section_heading.dart';
 import 'package:e_commerce/features/personalization/screens/profile/widgets/change_name.dart';
 import 'package:e_commerce/features/personalization/screens/profile/widgets/profile_menu_item.dart';
@@ -34,13 +35,23 @@ class ProfileScreen extends StatelessWidget {
                 child: Column(
                   children: [
                     /// Profile Picture
-                    const CircularImage(
-                      image: Images.user,
-                      width: 80,
-                      height: 80,
-                    ),
+                    Obx(() {
+                      final networkImage = controller.user.value.profilePicture;
+                      final image =
+                          networkImage.isNotEmpty ? networkImage : Images.user;
+
+                      return controller.imageUploading.value
+                          ? const ShimmerEffect(
+                              width: 80, height: 80, radius: 80)
+                          : CircularImage(
+                              image: image,
+                              width: 80,
+                              height: 80,
+                              isNetworkImage: true,
+                            );
+                    }),
                     TextButton(
-                        onPressed: () {},
+                        onPressed: () => controller.uploadUserProfilePicture(),
                         child: const Text("Change Profile Picture"))
                   ],
                 ),
@@ -62,7 +73,9 @@ class ProfileScreen extends StatelessWidget {
                   value: controller.user.value.fullName,
                   onPressed: () => Get.to(() => const ChangeName())),
               ProfileMenuItem(
-                  title: "username", value: controller.user.value.username, onPressed: () {}),
+                  title: "username",
+                  value: controller.user.value.username,
+                  onPressed: () {}),
 
               const SizedBox(height: Sizes.spaceBetweenItems / 2),
               const Divider(),

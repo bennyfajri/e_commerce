@@ -10,6 +10,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 
 import '../../../utils/constants/image_strings.dart';
 import '../../../utils/helpers/network_manager.dart';
@@ -23,6 +24,7 @@ class UserController extends GetxController {
   Rx<UserModel> user = UserModel.empty().obs;
 
   final hidePassword = false.obs;
+  final imageUploading = false.obs;
   final verifyEmail = TextEditingController();
   final verifyPassword = TextEditingController();
   final userRepository = Get.put(UserRepository());
@@ -53,26 +55,31 @@ class UserController extends GetxController {
   /// Save user Record from any Registration Provider
   Future<void> saveUserRecord(UserCredential? userCredentials) async {
     try {
-      if (userCredentials != null) {
-        // Convert name to first and last name
-        final nameParts =
-            UserModel.nameParts(userCredentials.user?.displayName! ?? "");
-        final username = UserModel.generateUsername(
-            userCredentials.user?.displayName! ?? "");
+      // refresh user record
+      fetchUserRecord();
 
-        // Create user model
-        final user = UserModel(
-          id: userCredentials.user!.uid,
-          firstName: nameParts[0],
-          lastName: nameParts.length > 1 ? nameParts.sublist(1).join(" ") : "",
-          username: username,
-          email: userCredentials.user?.email ?? "",
-          phoneNumber: userCredentials.user?.phoneNumber ?? "",
-          profilePicture: userCredentials.user?.photoURL ?? "",
-        );
+      if(user.value.id.isEmpty) {
+        if (userCredentials != null) {
+          // Convert name to first and last name
+          final nameParts =
+          UserModel.nameParts(userCredentials.user?.displayName! ?? "");
+          final username = UserModel.generateUsername(
+              userCredentials.user?.displayName! ?? "");
 
-        // Save user data
-        await userRepository.saveUserRecord(user);
+          // Create user model
+          final user = UserModel(
+            id: userCredentials.user!.uid,
+            firstName: nameParts[0],
+            lastName: nameParts.length > 1 ? nameParts.sublist(1).join(" ") : "",
+            username: username,
+            email: userCredentials.user?.email ?? "",
+            phoneNumber: userCredentials.user?.phoneNumber ?? "",
+            profilePicture: userCredentials.user?.photoURL ?? "",
+          );
+
+          // Save user data
+          await userRepository.saveUserRecord(user);
+        }
       }
     } catch (e) {
       Loaders.warningSnackBar(
@@ -167,6 +174,34 @@ class UserController extends GetxController {
     } catch (e) {
       FullScreenLoader.stopLoading();
       Loaders.errorSnackBar(title: "Oh Snap!", message: e.toString());
+    }
+  }
+
+  /// upload profile image
+  uploadUserProfilePicture() async {
+    try {
+      final image = await ImagePicker().pickImage(source: ImageSource.gallery,
+          imageQuality: 70,
+          maxHeight: 512,
+          maxWidth: 512);
+      if (image != null) {
+        imageUploading.value = true;
+        // up
+        final imageUrl = await userRepository.uploadImage(
+            "Users/Images/Profile/", image);
+        // update user image record
+        Map<String, dynamic> json = {
+          "ProfilePicture": imageUrl,
+        };
+        await userRepository.updateSingleField(json);
+        user.value.profilePicture = imageUrl;
+        Loaders.successSnackBar(title: "Congratulations",
+            message: "Profile picture updated successfully");
+      }
+    } catch (e) {
+      Loaders.errorSnackBar(title: "Oh Snap!", message: "Something went wrong : ${e.toString()}");
+    } finally {
+      imageUploading.value = false;
     }
   }
 }
