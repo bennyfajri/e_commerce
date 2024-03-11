@@ -1,5 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:e_commerce/common/widgets/loader/shimmer.dart';
+import 'package:e_commerce/common/widgets/shimmer/shimmer.dart';
 import 'package:flutter/material.dart';
 
 import '../../../utils/constants/colors.dart';
@@ -52,11 +52,8 @@ class CircularImage extends StatelessWidget {
                   errorWidget: (context, url, error) => const Icon(Icons.error),
                 )
               : Image(
-                  image: isNetworkImage
-                      ? NetworkImage(image)
-                      : AssetImage(image) as ImageProvider,
-                  width: width,
-                  height: height,
+                  image: AssetImage(image),
+                  color: overlayColor,
                   fit: fit,
                 ),
         ),

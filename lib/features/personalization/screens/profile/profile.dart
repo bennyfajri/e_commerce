@@ -1,6 +1,6 @@
 import 'package:e_commerce/common/widgets/appbar/appbar.dart';
 import 'package:e_commerce/common/widgets/images/circular_images.dart';
-import 'package:e_commerce/common/widgets/loader/shimmer.dart';
+import 'package:e_commerce/common/widgets/shimmer/shimmer.dart';
 import 'package:e_commerce/common/widgets/texts/section_heading.dart';
 import 'package:e_commerce/features/personalization/screens/profile/widgets/change_name.dart';
 import 'package:e_commerce/features/personalization/screens/profile/widgets/profile_menu_item.dart';

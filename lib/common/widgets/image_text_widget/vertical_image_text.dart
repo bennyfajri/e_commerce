@@ -1,3 +1,4 @@
+import 'package:e_commerce/common/widgets/images/circular_images.dart';
 import 'package:flutter/material.dart';
 
 import '../../../utils/constants/colors.dart';
@@ -12,11 +13,13 @@ class VerticalImageText extends StatelessWidget {
     this.textColor = MyColors.white,
     this.backgroundColor,
     this.onTap,
+    this.isNetworkImage = false,
   });
 
   final String image, title;
   final Color textColor;
   final Color? backgroundColor;
+  final bool isNetworkImage;
   final void Function()? onTap;
 
   @override
@@ -29,21 +32,13 @@ class VerticalImageText extends StatelessWidget {
         padding: const EdgeInsets.only(right: Sizes.spaceBetweenItems),
         child: Column(
           children: [
+
             /// Circular Icon
-            Container(
-              width: 56,
-              height: 56,
-              padding: const EdgeInsets.all(Sizes.sm),
-              decoration: BoxDecoration(
-                  color: backgroundColor ?? (isDarkMode ? MyColors.black : MyColors.white),
-                  borderRadius: BorderRadius.circular(100)),
-              child: Center(
-                child: Image(
-                  image: AssetImage(image),
-                  fit: BoxFit.cover,
-                  color: isDarkMode ? MyColors.light : MyColors.dark,
-                ),
-              ),
+            CircularImage(image: image, fit: BoxFit.fitWidth,
+              padding: Sizes.sm * 1.4,
+              isNetworkImage: isNetworkImage,
+              backgroundColor: backgroundColor,
+              overlayColor: HelperFunctions.isDarkMode(context) ? MyColors.light : MyColors.dark,
             ),
 
             /// Text
@@ -52,7 +47,10 @@ class VerticalImageText extends StatelessWidget {
               width: 55,
               child: Text(
                 title,
-                style: Theme.of(context).textTheme.labelMedium,
+                style: Theme
+                    .of(context)
+                    .textTheme
+                    .labelMedium,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
               ),
